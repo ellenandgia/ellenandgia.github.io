@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gia & Ellen Wedding</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container">
+        <!-- <div class="names">  <p class="script-sm">G & E</p> </div> -->
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/icon-crop.png" alt="logo" height="40" />
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="#schedule">Schedule</a>
+            </li>
+            <li>
+              <a href="#travel">Travel</a>
+            </li>
+            <li>
+              <a href="#faq">FAQ</a>
+            </li>
+            <li>
+              <a class="btn" href="#rsvp"> <i class="fas fa-pen"></i> RSVP </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Hamburger button -->
+        <button id="hamburger-button" class="hamburger-button">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        <div class="mobile-menu">
+          <ul>
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li>
+              <a href="#schedule">Schedule</a>
+            </li>
+            <li>
+              <a href="#travel">Travel</a>
+            </li>
+            <li>
+              <a href="#faq">FAQ</a>
+            </li>
+            <li>
+              <a class="btn" href="#rsvp"> <i class="fas fa-pen"></i> RSVP </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="assets/gyeongbokgung1.mp4" type="video/mp4" />
+        <source src="assets/gyeongbokgung1.webm" type="video/webm" />
+        Your browser does not support the video.
+      </video>
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-heading script-xxl">Gia & Ellen</h1>
+          <h1 class="hero-text text-md">are getting married!</h1>
+          <h1 class="hero-subheading text-lg">May 30, 2026</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome -->
+    <section class="welcome">
+      <div class="container-sm">
+        <div class="welcome-content">
+          <p class="text-md">
+            Welcome dear friends and family! We're very excited to share our
+            special day with you. You can use this website to find all the
+            information needed for our wedding. We'll share more details here as
+            the day approaches.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown">
+      <!-- <div class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <p>Days</p>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <p>Hours</p>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <p>Minutes</p>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <p>Seconds</p>
+        </div>
+      </div> -->
+      <div class="countdown">
+        <div class="time-container">
+          <p>Days</p>
+          <div class="time-box" id="days">00</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="time-container">
+          <p>Hours</p>
+          <div class="time-box" id="hours">00</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="time-container">
+          <p>Minutes</p>
+          <div class="time-box" id="minutes">00</div>
+        </div>
+        <div class="colon">:</div>
+        <div class="time-container">
+          <p>Seconds</p>
+          <div class="time-box" id="seconds">00</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="details" id="schedule">
+      <div class="container">
+        <div class="details-content">
+          <h1 class="section-heading">Schedule</h1>
+          <div class="details-grid">
+            <div class="card">
+              <div class="date">
+                <p>Friday, May 29</p>
+              </div>
+              <div class="what">
+                <p>Welcome Party</p>
+              </div>
+              <div class="loc">
+                <p>7-9pm @ Seven Ten Social</p>
+              </div>
+              <p>—</p>
+              <div class="info">
+                Join us for a casual evening of drinks and bowling!
+              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.5535617842743!2d-87.6029646240503!3d41.79483407125106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e29a75ea01091%3A0x2658ab09e41cc102!2sSeven%20Ten%20Social!5e0!3m2!1sen!2sus!4v1750622541144!5m2!1sen!2sus"
+                width="360"
+                height="200"
+                style="border: 1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <p>1055 E 55th St, Chicago, IL 60615</p>
+            </div>
+            <div class="card">
+              <div class="date">
+                <p>Saturday, May 30</p>
+              </div>
+              <div class="what">
+                <p>Reception & Ceremony</p>
+              </div>
+              <div class="loc">
+                <p>5-11pm @ Halim Time & Glass Museum</p>
+              </div>
+              <p>—</p>
+              <div class="info">
+                Celebrate our wedding and explore the museum with beautiful
+                rooftop views of downtown Chicago.
+              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5925.73114339232!2d-87.68971312403694!3d42.04606287122384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd00ff38e5d1d%3A0x48679d75ed7194e2!2sHalim%20Time%20%26%20Glass%20Museum!5e0!3m2!1sen!2sus!4v1750622584890!5m2!1sen!2sus"
+                width="360"
+                height="200"
+                style="border: 1"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <p>1560 Oak Ave, Evanston, IL 60201</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Travel -->
+    <section class="travel" id="travel">
+      <div class="container">
+        <div class="travel-content">
+          <h1 class="section-heading">Travel</h1>
+          <p>Our wedding will be in <b>Chicago</b>!</p>
+          <p>We'll add our suggestions to the FAQ.</p>
+          <!-- <iframe
+            width="800"
+            height="400"
+            src="https://www.youtube.com/embed/IFi45vE6yaY?si=Ha7JAaE4AnPFs0fU&controls=0&autoplay=1&mute=1&loop=1&rel=0&modestbranding=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq-content">
+          <h1 class="section-heading">FAQ</h1>
+          <div class="faq-header">
+            <p>More answers coming soon.</p>
+          </div>
+          <div class="faq-questions">
+            <div class="faq-group">
+              <!-- Questions list:-->
+              <div class="faq-group-header">
+                <h4 class="text-md">How do I get to Chicago?</h4>
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="faq-group-body">
+                <p>
+                  Depending on where you're located, probably flying into MDW or
+                  ORD. MDW is more south, near the University of Chicago, and a
+                  hub for Southwest. ORD is northwest of the city, and you can
+                  take the blue line straight to downtown from there. We advise
+                  checking flights into both airports to see the best ones from
+                  your home airport.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-group">
+              <div class="faq-group-header">
+                <h4 class="text-md">What should I do in Chicago?</h4>
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="faq-group-body">
+                <p>
+                  There is so much to do! If you're coming from out-of-town, and
+                  you have the weekend to spare, we highly recommend taking the
+                  chance to explore. There are so many iconic landmarks,
+                  charming neighborhoods, and fun museums.
+                  <a
+                    href="https://www.choosechicago.com/articles/bucket-list/first-time-visitors-guide-to-chicago/"
+                    target="_blank"
+                    >This website</a
+                  >
+                  is a great place to get started planning. We also always
+                  recommend the architecture boat tour.
+                </p>
+              </div>
+            </div>
+
+            <!-- <div class="faq-group">
+              <div class="faq-group-header">
+                <h4 class="text-md">
+                  What is the dress code for the ceremony and reception?
+                </h4>
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="faq-group-body">
+                <p>
+                  We're going for a classic formal attire. Chicago weather in
+                  May is hard to predict, but there is a reasonable chance it
+                  will be pleasant, so our ceremony will be outside before
+                  moving in for the reception. We'll choose colors closer to the
+                  wedding date and would love to see folks matching :)
+                </p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp" id="rsvp">
+      <div class="container">
+        <div class="rsvp-content">
+          <h1 class="section-heading">RSVP</h1>
+          <p>Stay tuned for formal invites!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-text">
+          <p class="text-sm">
+            Made by Gia with
+            <img
+              src="assets/icon-white-crop.png"
+              alt="logo-white"
+              height="13"
+            />
+            for Ellen
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

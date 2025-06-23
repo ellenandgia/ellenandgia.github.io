@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
   hamburgerButton.addEventListener('click', () => 
     mobileMenu.classList.toggle('active')
   );
+
+  // make menu disappear after going to new section
+  mobileMenu.addEventListener('click', () => 
+    mobileMenu.classList.remove('active')
+  );
+
 });
 
 

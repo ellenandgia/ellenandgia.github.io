@@ -6,23 +6,6 @@
 
 }
 
-/* My style */
-/* :root {
-  --primary-color: #7d0e0e;
-  --light-color: #e7e7fb;
-  /* --light-color: #e7e7e7;
-  --dark-color: #4c5760;
-} */
-
-
-/* :root {
-  --primary-color: #6e282c;
-  --light-color: #f7f5ce;
-  --accent-color: #ae7d72;
-  --dark-color: #4c5760;
-  --verydark-color: #1d1a1f;
-} */
-
 :root {
   --primary-color: #6e282c;
   --light-color: #bfcde0;
@@ -321,6 +304,11 @@ img {
 
 .details-grid .card .info {
     padding: 0 0 10px; 
+}
+
+/* Maps */
+.map {
+  width: 95%;
 }
 
 /* Travel */

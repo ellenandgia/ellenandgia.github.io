@@ -553,6 +553,7 @@ a:hover {
     width: 70px;
   }
 
+
 }
 
 
@@ -817,17 +818,48 @@ a:hover {
   }
 
   .timeline-event {
-    width: calc(100% - 10px); /* leave padding on both sides */
+    width: calc(100% - 20px); /* leave padding on both sides */
     margin: 3rem 20px; /* space from edges */
     padding-left: 20px; /* space for timeline line */
     padding-right: 20px;
-    justify-content: flex-start;
-    flex-direction: row;
-    text-align: left;
-    align-items: flex-start;
   }
 
   .vertical-timeline .timeline-line {
     height: 83%;
+  }
+}
+
+
+/* Small phone screen -- make things even tighter */
+@media screen and (max-width: 500px) {
+  .timeline-event img {
+    order: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 120px;
+    height: 120px;
+  }
+
+  .timeline-event {
+    width: 100%; 
+    margin: 50px 0px;
+    padding-left: 10px; 
+    padding-right: 10px;
+  }
+
+  .vertical-timeline .timeline-line {
+    height: 86%;
+  }
+
+  .timeline-event.right .content {
+    padding-right: 0px;
+  }
+
+  .timeline-event.left .content {
+    padding-left: 0px;
+  }
+
+  .timeline-event p {
+    font-size: 0.8rem;
   }
 }

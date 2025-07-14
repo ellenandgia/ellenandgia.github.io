@@ -3,7 +3,10 @@
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+}
 
+p {
+  margin: 0 0 6px 0;
 }
 
 :root {
@@ -156,6 +159,14 @@ img {
   margin: 20px 0 10px;
 }
 
+.text-md2 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+
 .text-sm {
   font-size: 0.9rem;
   line-height: 1.4;
@@ -196,7 +207,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(20, 19, 27, 0.8);
+  background-color: rgba(20, 19, 27, 0.7);
   z-index: 1;
 }
 
@@ -319,7 +330,7 @@ img {
 
 /* FAQ */
 .faq {
-  background: var(--background-alt-color);
+  background: var(--background-color);
 }
 
 .faq-header {
@@ -368,7 +379,7 @@ img {
 
 /* RSVP */
 .rsvp {
-  /* background: var(--background-alt-color); */
+  background: var(--background-alt-color);
   text-align: center;
 }
 
@@ -431,7 +442,7 @@ footer {
 }
 
 /* Hyperlinks */
-.faq-group-body a {
+.faq a {
   color: var(--primary-color);
   background-color: transparent;
   text-decoration: underline;
@@ -514,7 +525,7 @@ a:hover {
 }
 
 
-@media (max-width: 670px) {
+@media (max-width: 720px) {
 
   .navbar .main-menu {
     display: none;
@@ -599,4 +610,194 @@ a:hover {
 
 .card-ceremony::before {
   background: url('../assets/chronometer.jpg') center/cover no-repeat;
+}
+
+
+/* Timeline */
+.timeline {
+  width: 100vw;            /* full viewport width */
+  background: var(--background-alt-color);
+  justify-content: center; /* center the timeline inside */
+}
+
+.vertical-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 50px 200px;
+  background: var(--background-alt-color);  
+}
+
+/* Vertical center timeline line */
+.vertical-timeline .timeline-line {
+  position: absolute;
+  top: 180px;  /* manually shift below title */
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 82%;
+  background: var(--primary-color);
+  z-index: 0;
+}
+
+/* Each event box */
+.timeline-event {
+  position: relative;
+  width: 48%;
+  padding: 20px;
+  margin-bottom: -80px;
+  background: var(--light-color);
+  border-radius: 20px;
+  box-shadow: 0 0 10px #0008;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 1;
+}
+
+/* Circle — fixed on center line, vertically aligned with box */
+.timeline-event::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  /* box-shadow: 0 0 8px var(--primary-color); */
+  z-index: 2;
+} 
+
+/* Left side events */
+.timeline-event.left {
+  margin-right: auto;
+  flex-direction: row;
+  text-align: right;
+}
+.timeline-event.left img {
+  order: 1;
+}
+.timeline-event.left .content {
+  flex: 1;
+  padding-left: 10px;
+}
+.timeline-event.left h3,
+.timeline-event.left p {
+  text-align: right;
+}
+
+/* Right side events */
+.timeline-event.right {
+  margin-left: auto;
+  flex-direction: row-reverse;
+  text-align: left;
+}
+.timeline-event.right img {
+  order: 1;
+}
+.timeline-event.right .content {
+  flex: 1;
+  padding-right: 10px;
+}
+.timeline-event.right h3,
+.timeline-event.right p {
+  text-align: left;
+}
+
+/* Images */
+.timeline-event img {
+  width: 200px;
+  height: 200px;
+  /* transform: translateX(-50%); */
+  object-fit: cover;
+  border-radius: 50%;
+  /* box-shadow: 0 0 5px #0008; */
+  flex-shrink: 0;
+}
+
+/* Heading */
+.timeline-event h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+/* Description text */
+.timeline-event p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #111;
+}
+
+/* Left panels: shift circle to the far right (center line) */
+.timeline-event.left::before {
+  left: 104%;  
+}
+
+/* Right panels: shift circle to the far left (center line) */
+.timeline-event.right::before {
+  left: -4.2%;  
+}
+
+/* Mobile timeline -- stacked boxes */
+@media screen and (max-width: 768px) {
+  .timeline-line {
+    left: 20px; /* shift line to left edge */
+  }
+
+  .vertical-timeline .timeline-line {
+    height: 85%;
+  }
+
+  .timeline-event {
+    width: calc(100% - 40px); /* leave padding on both sides */
+    margin: 3rem 20px; /* space from edges */
+    padding-left: 20px; /* space for timeline line */
+    padding-right: 20px;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .timeline-event.left,
+  .timeline-event.right {
+    left: 0;
+    align-items: flex-start;
+  }
+
+  .timeline-event img {
+    order: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 180px;
+    height: 180px;
+  }
+
+  .timeline-event .timeline-content {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .timeline-event .timeline-content h3,
+  .timeline-event .timeline-content p {
+    text-align: left;
+  }
+
+  .timeline-event::before {
+    left: 20px;
+    transform: translateX(0);
+  }
+
+  /* remove the circle */
+  .timeline-event::before {
+    background: none;
+    border: none;
+    box-shadow: none;
+  } 
 }

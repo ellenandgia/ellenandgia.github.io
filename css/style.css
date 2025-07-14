@@ -645,7 +645,7 @@ a:hover {
 .timeline-event {
   position: relative;
   width: 48%;
-  padding: 20px;
+  padding: 20px 10px;
   margin-bottom: -80px;
   background: var(--light-color);
   border-radius: 20px;
@@ -744,8 +744,10 @@ a:hover {
   left: -4.2%;  
 }
 
+
+
 /* Mobile timeline -- stacked boxes */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .timeline-line {
     left: 20px; /* shift line to left edge */
   }
@@ -755,7 +757,7 @@ a:hover {
   }
 
   .timeline-event {
-    width: calc(100% - 40px); /* leave padding on both sides */
+    width: calc(100% - 80px); /* leave padding on both sides */
     margin: 3rem 20px; /* space from edges */
     padding-left: 20px; /* space for timeline line */
     padding-right: 20px;
@@ -800,4 +802,32 @@ a:hover {
     border: none;
     box-shadow: none;
   } 
+}
+
+
+
+/* Mobile timeline -- stacked boxes */
+@media screen and (max-width: 700px) {
+  .timeline-event img {
+    order: 0;
+    margin-right: 0;
+    margin-left: 0;
+    width: 140px;
+    height: 140px;
+  }
+
+  .timeline-event {
+    width: calc(100% - 10px); /* leave padding on both sides */
+    margin: 3rem 20px; /* space from edges */
+    padding-left: 20px; /* space for timeline line */
+    padding-right: 20px;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .vertical-timeline .timeline-line {
+    height: 83%;
+  }
 }

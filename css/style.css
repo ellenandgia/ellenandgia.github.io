@@ -1161,6 +1161,10 @@ a:hover {
   .hero {
     height: 50vh;         
   }
+
+  .text-md {
+    font-size: 1rem;
+  }
 }
 
 /* Photo gallery */

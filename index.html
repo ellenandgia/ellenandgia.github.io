@@ -26,6 +26,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="preload" as="image" href="assets/gyeongbokgung1_frame1.jpg" />
   </head>
   <body>
     <!-- Navbar -->
@@ -91,7 +92,7 @@
               <a href="#faq">FAQ</a>
             </li>
             <li>
-              <a href="#registry">Registry</a>
+              <a href="https://www.myregistry.com/giftlist/ellenandgia" target="_blank">Registry</a>
             </li>
             <li>
               <a
@@ -108,7 +109,14 @@
     </nav>
     <!-- Hero -->
     <section class="hero">
-      <video class="hero-video" autoplay muted loop playsinline>
+      <video class="hero-video" 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        preload="metadata" 
+        poster="assets/gyeongbokgung1_frame1.jpg"
+      >
         <source src="assets/gyeongbokgung1.mp4" type="video/mp4" />
         <source src="assets/gyeongbokgung1.webm" type="video/webm" />
         Your browser does not support the video.
@@ -149,19 +157,23 @@
       </div>
     </section>
 
+
+
     <!-- Welcome -->
     <section class="welcome">
       <div class="container-sm">
         <div class="welcome-content">
+          <p class="text-tilde">
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+          </p>
           <p class="text-md">
             Welcome dear friends and family! We're very excited to share our
             special day with you. Here you can find all the information needed
-            for our wedding. Please let us know if you can make it using the
-            RSVP button above (<a
+            for our wedding. Please RSVP at <a
               href="https://ellenandgia.rsvpify.com/"
               target="_blank"
               >ellenandgia.rsvpify.com</a
-            >).
+            > (or click the big button above!)
           </p>
         </div>
       </div>
@@ -206,9 +218,9 @@
                 <p>Welcome Party</p>
               </div>
               <div class="loc">
-                <p>6-9pm @ Seven Ten Social</p>
+                <p>6:00 PM – 9:00 PM @ Seven Ten Social</p>
               </div>
-              <p>—</p>
+              <p>~~~</p>
               <div class="info">
                 Join us for a casual evening reuniting with friends over drinks
                 and bowling!
@@ -233,9 +245,9 @@
                 <p>Ceremony & Reception</p>
               </div>
               <div class="loc">
-                <p>4-11pm @ Halim Time & Glass Museum</p>
+                <p>4:00 PM – 11:00 PM @ Halim Time & Glass Museum</p>
               </div>
-              <p>—</p>
+              <p>~~~</p>
               <div class="info">
                 Celebrate our wedding and explore the museum with beautiful
                 rooftop views of downtown Chicago.
@@ -466,8 +478,7 @@
           <h1 class="section-heading">Q's</h1>
           <div class="faq-header">
             <p class="text-md2">
-              More answers coming soon! In the meantime, if you have other
-              questions, please
+              If we forgot to answer anything here, please
               <a href="mailto:ellenandgia@gmail.com">email us</a>.
             </p>
           </div>
@@ -653,12 +664,13 @@
         <div class="registry-content">
           <h1 class="section-heading">Registry</h1>
           <p class="text-md2">
-            If you would like to contribute to our registry, you can do so at 
+            Your presence at our wedding is the greatest gift. If you'd like to give something,
+            you can find our registry here: 
             <a
               href="https://www.myregistry.com/giftlist/ellenandgia"
               target="_blank"
               >www.myregistry.com/giftlist/ellenandgia</a
-            >.
+            >
           </p>
           </p>
         </div>

@@ -179,11 +179,18 @@ img {
 }
 
 .text-clickme {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: normal;
   margin: 0;
-  /* color: rgba(163, 80, 80, 0.8); */
-  color: var(--primary-color);
+  color: rgba(53, 78, 121, 0.7);
+  /* color: var(--primary-color); */
+}
+
+.text-tilde {
+  font-size: min(2.4vw, 1.2rem);
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 0 0 30px 0;
 }
 
 /* Hero */
@@ -402,8 +409,11 @@ img {
 
 /* Big RSVP button */
 .btn.btn-rsvp {
-  width: min(65vw, 500px);
+  /* width: min(65vw, 500px);
   font-size: clamp(4rem, 15vw, 7rem);
+   */
+  width: min(60vw, 400px);
+  font-size: clamp(4rem, 15vw, 6rem);
   
   /* move the fill off the element and onto ::before */
   background-color: transparent;

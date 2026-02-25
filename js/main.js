@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Countdown Timer
-  const targetDate = new Date("2026-05-30T17:00:00").getTime();
+  const targetDate = new Date("2026-05-30T16:00:00").getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();

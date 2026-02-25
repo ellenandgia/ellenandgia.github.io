@@ -178,6 +178,13 @@ img {
   text-align: center;
 }
 
+.text-clickme {
+  font-size: 1.3rem;
+  font-weight: normal;
+  margin: 0;
+  /* color: rgba(163, 80, 80, 0.8); */
+  color: var(--primary-color);
+}
 
 /* Hero */
 .hero {
@@ -378,11 +385,281 @@ img {
 
 
 /* RSVP */
+
 .rsvp {
   background: var(--background-color);
   text-align: center;
+  padding: 50px 0 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
 }
 
+.rsvp .rsvp-content {
+  display: flex;
+  justify-content: center;
+}
+
+/* Big RSVP button */
+.btn.btn-rsvp {
+  width: min(65vw, 500px);
+  font-size: clamp(4rem, 15vw, 7rem);
+  
+  /* move the fill off the element and onto ::before */
+  background-color: transparent;
+
+  color: rgba(0, 0, 0, 1);
+  padding: 18px 0;
+  line-height: 1.5;
+  font-weight: bold;
+  border-radius: 30px;
+  text-align: center;
+  letter-spacing: 0.07em;
+
+  /* motion-border config */
+  --rsvp-border: 8px;
+  --rsvp-radius: 30px;      /* MUST match border-radius above */
+  --rsvp-speed: 5s;
+
+  /* dot size (core is tiny) */
+  --rsvp-dot: 2px;
+
+  position: relative;
+  isolation: isolate;
+
+  /* box-shadow under the dots */
+  box-shadow:
+    0 0 6px 6px rgba(104, 21, 21, 0.5);
+}
+
+/* Button fill */
+.btn.btn-rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--light-color);
+  pointer-events: none;
+  z-index: -10;
+
+  /* box shadow over the dots */
+  box-shadow: 0 0 3px 2px rgba(120, 11, 11, 0.2);
+}
+
+/* Keep text above the fill */
+.btn.btn-rsvp .slant {
+  display: inline-block;
+  transform: skewX(-6deg);
+  position: relative;
+  z-index: -1;
+}
+
+.btn.btn-rsvp .rsvp-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -100;
+}
+
+/* Two moving dots that hug the rounded-rect perimeter */
+@supports (offset-path: inset(0 round 10px)) {
+  .btn.btn-rsvp .rsvp-dots::before,
+  .btn.btn-rsvp .rsvp-dots::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 0.95var(--rsvp-dot);
+    height: 0.95var(--rsvp-dot);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 1); /* core */
+    box-shadow: 0 0 150px 150px rgba(255, 255, 255, 0.6);
+
+    offset-path: inset(0 round var(--rsvp-radius));
+    offset-distance: 0%;
+    offset-rotate: auto;
+    offset-anchor: 50% 50%;
+
+    animation: rsvp-run var(--rsvp-speed) linear infinite;
+  }
+
+  /* Second dot 180 deg opposite the first */
+  .btn.btn-rsvp .rsvp-dots::after {
+    animation-delay: calc(var(--rsvp-speed) / -2);
+  }
+
+  @keyframes rsvp-run {
+    to { offset-distance: 100%; }
+  }
+}
+
+/* Fallback (if motion-path unsupported): hide the dots */
+@supports not (offset-path: inset(0 round 10px)) {
+  .btn.btn-rsvp .rsvp-dots { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.btn-rsvp .rsvp-dots::before,
+  .btn.btn-rsvp .rsvp-dots::after { animation: none; }
+}
+
+/* Expand on button hover */
+.btn.btn-rsvp {
+  display: inline-block;              /* ensures transform behaves nicely */
+  transform-origin: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, color 280ms ease;
+  will-change: transform;
+}
+
+.btn.btn-rsvp:hover {
+  color: var(--primary-color);
+  transform: scale(1.02);            /* 2% bigger */
+  box-shadow:
+    0 0 4px 3px rgba(120, 11, 11, 0.25),
+    0 0 9px 9px rgba(104, 21, 21, 0.6);
+}
+
+.btn.btn-rsvp:focus-visible {
+  transform: scale(1.02);
+}
+
+/* 3D shading on button */
+.btn.btn-rsvp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  /* stack between ::before (-10) and text (-1) */
+  z-index: -9;
+
+  /* highlight (upper-right) + shadow (lower-left) */
+  background:
+    radial-gradient(200% 70% at 85% 15%,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.0) 55%),
+    radial-gradient(200% 70% at 15% 85%,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.0) 60%);
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.14),
+    inset 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Stronger 3D  on hover */
+.btn.btn-rsvp:hover::after {
+  background:
+    radial-gradient(200% 70% at 85% 15%,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(255, 255, 255, 0.0) 55%),
+    radial-gradient(200% 70% at 15% 85%,
+      rgba(0, 0, 0, 0.22) 0%,
+      rgba(0, 0, 0, 0.0) 60%);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.18),
+    inset 0 0 12px rgba(0, 0, 0, 0.10);
+}
+
+
+
+/* Small RSVP button */
+
+.btn_rsvp {
+  display: inline-block;
+  padding: 13px 20px;
+
+  /* match the big button’s approach: fill lives on ::before */
+  background: transparent;
+
+  color: rgba(0, 0, 0, 1);
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  position: relative;
+  isolation: isolate;
+
+  transform-origin: center;
+  transition: transform 180ms ease, color 180ms ease;
+  will-change: transform;
+}
+
+/* Fill */
+.btn_rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--light-color);
+  pointer-events: none;
+  z-index: -10;
+}
+
+/* Small button: subtler inner 3D shading */
+.btn_rsvp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -9;
+
+  /* subtle highlight + shadow */
+  background:
+    radial-gradient(200% 70% at 85% 15%,
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.0) 60%),
+    radial-gradient(200% 70% at 15% 85%,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.0) 65%);
+
+  box-shadow:
+    0 1px 1px 1px rgba(69, 7, 7, 0.4),   /* main drop shadow */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.10),
+    inset 0 0 8px rgba(0, 0, 0, 0.06);
+}
+
+.btn_rsvp:hover {
+  transform: scale(1.03);
+  color: rgba(0, 0, 0, 1);
+}
+
+.btn_rsvp:hover::after {
+  background:
+    radial-gradient(200% 70% at 85% 15%,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.0) 60%),
+    radial-gradient(200% 70% at 15% 85%,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.0) 65%);
+
+  box-shadow:
+    0 1px 3px 1px rgba(69, 7, 7, 0.6),   /* main drop shadow */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 9px rgba(0, 0, 0, 0.07);
+}
+
+/* Keyboard accessibility */
+.btn_rsvp:focus-visible {
+  transform: scale(1.06);
+  outline: 2px solid rgba(104, 21, 21, 0.35);
+  outline-offset: 3px;
+}
+
+/* Prevent underline on hover/focus for the RSVP button link */
+a.btn_rsvp,
+a.btn_rsvp:hover,
+a.btn_rsvp:focus,
+a.btn_rsvp:focus-visible,
+a.btn_rsvp:active {
+  text-decoration: none;
+}
 
 /* Footer */
 footer {

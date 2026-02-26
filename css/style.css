@@ -409,13 +409,10 @@ img {
 
 /* Big RSVP button */
 .btn.btn-rsvp {
-  /* width: min(65vw, 500px);
-  font-size: clamp(4rem, 15vw, 7rem);
-   */
-  width: min(60vw, 400px);
-  font-size: clamp(4rem, 15vw, 6rem);
+  width: min(60vw, 250px);
+  font-size: clamp(3.5rem, 10vw, 4rem);
   
-  /* move the fill off the element and onto ::before */
+  /* move the fill onto ::before for the background animation */
   background-color: transparent;
 
   color: rgba(0, 0, 0, 1);
@@ -431,7 +428,7 @@ img {
   --rsvp-radius: 30px;      /* MUST match border-radius above */
   --rsvp-speed: 5s;
 
-  /* dot size (core is tiny) */
+  /* animated dot size (core is tiny) */
   --rsvp-dot: 2px;
 
   position: relative;
@@ -439,7 +436,8 @@ img {
 
   /* box-shadow under the dots */
   box-shadow:
-    0 0 6px 6px rgba(104, 21, 21, 0.5);
+    0 1px 1px 1px rgba(69, 7, 7, 0.4),   /* main drop shadow */
+    0 0 6px 6px rgba(104, 21, 21, 0.5);  /* glow */
 }
 
 /* Button fill */
@@ -471,7 +469,8 @@ img {
   z-index: -100;
 }
 
-/* Two moving dots that hug the rounded-rect perimeter */
+/* Animation: two moving dots hugging the rect perimeter */
+/* White color partially blocks glow, giving rotation effect */
 @supports (offset-path: inset(0 round 10px)) {
   .btn.btn-rsvp .rsvp-dots::before,
   .btn.btn-rsvp .rsvp-dots::after {
@@ -485,7 +484,7 @@ img {
     border-radius: 999px;
 
     background: rgba(255, 255, 255, 1); /* core */
-    box-shadow: 0 0 150px 150px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 130px 130px rgba(255, 255, 255, 0.8);
 
     offset-path: inset(0 round var(--rsvp-radius));
     offset-distance: 0%;
@@ -495,7 +494,7 @@ img {
     animation: rsvp-run var(--rsvp-speed) linear infinite;
   }
 
-  /* Second dot 180 deg opposite the first */
+  /* Second dot 180 deg opposite */
   .btn.btn-rsvp .rsvp-dots::after {
     animation-delay: calc(var(--rsvp-speed) / -2);
   }
@@ -515,7 +514,7 @@ img {
   .btn.btn-rsvp .rsvp-dots::after { animation: none; }
 }
 
-/* Expand on button hover */
+/* RSVP button hover effects */
 .btn.btn-rsvp {
   display: inline-block;              /* ensures transform behaves nicely */
   transform-origin: center;
@@ -560,7 +559,7 @@ img {
     inset 0 0 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Stronger 3D  on hover */
+/* Stronger 3D on hover */
 .btn.btn-rsvp:hover::after {
   background:
     radial-gradient(200% 70% at 85% 15%,
@@ -577,12 +576,10 @@ img {
 
 
 /* Small RSVP button */
-
 .btn_rsvp {
   display: inline-block;
   padding: 13px 20px;
 
-  /* match the big button’s approach: fill lives on ::before */
   background: transparent;
 
   color: rgba(0, 0, 0, 1);
@@ -600,7 +597,7 @@ img {
   will-change: transform;
 }
 
-/* Fill */
+/* Small button fill */
 .btn_rsvp::before {
   content: "";
   position: absolute;
@@ -611,7 +608,7 @@ img {
   z-index: -10;
 }
 
-/* Small button: subtler inner 3D shading */
+/* Small button inner 3D shading */
 .btn_rsvp::after {
   content: "";
   position: absolute;
@@ -620,7 +617,6 @@ img {
   pointer-events: none;
   z-index: -9;
 
-  /* subtle highlight + shadow */
   background:
     radial-gradient(200% 70% at 85% 15%,
       rgba(255, 255, 255, 0.22) 0%,
@@ -1118,7 +1114,7 @@ a:hover {
 
 
 /* Small phone screen -- make things even tighter */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 510px) {
   .timeline-event img {
     order: 0;
     margin-right: 0;
